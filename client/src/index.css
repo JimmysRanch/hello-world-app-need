@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'DM Sans', sans-serif;
+    --font-display: 'Outfit', sans-serif;
+
+    /* Base Dark Theme Colors */
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 7%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Premium Gold/Amber for primary CTAs */
+    --primary: 45 93% 47%;
+    --primary-foreground: 222 47% 5%;
+
+    /* Deep Blue for secondary actions */
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 32% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 45 93% 47%;
+
+    --radius: 0.75rem;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600;
+  }
+  
+  .text-gradient-blue {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-300 via-blue-500 to-blue-700;
+  }
+
+  .glow-bg-blue {
+    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15) 0%, rgba(11, 15, 25, 0) 60%);
+  }
+
+  .glow-bg-gold {
+    background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.12) 0%, rgba(11, 15, 25, 0) 60%);
+  }
+
+  /* Custom animated scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground;
+  }
+}
